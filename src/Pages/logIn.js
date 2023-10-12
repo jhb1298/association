@@ -45,7 +45,7 @@ class LogIn extends React.Component {
           
           localStorage.setItem("id",data.id)
           // Redirect to the home page or perform any necessary action.
-          window.location.href = "/home";
+          window.location.href = "/";
         } else {
           // Authentication failed
           alert("Authentication failed. Please check your credentials.");
