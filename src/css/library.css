@@ -1,0 +1,110 @@
+html {
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+body,html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow: -moz-hidden-unscrollable;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 1.3rem;
+    margin: .5rem 0%;
+}
+
+h4 {
+    font-size: 1rem;
+    margin: .5rem 0%;
+}
+
+.fas,
+.fab {
+    padding: 2%;
+    color: azure;
+    font-size: 1.5rem;
+}
+
+.fab:hover {
+    color: rgb(147, 147, 184);
+}
+
+.fas:hover {
+    color: rgb(147, 147, 184);
+}
+
+
+
+#sortAndSearchl {
+    top: 15vh;
+    height: 3vh;
+    padding: 5px;
+    width: 100vw;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+#dropDown{
+    white-space: nowrap;
+}
+#sortAndSearchl select{
+    background-color: transparent;
+}
+
+
+#oListL {
+    margin-top: 22vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    padding-left: 0%;
+    justify-content: center;
+    z-index: 1;
+}
+
+#oListL li {
+    background-color: rgb(59, 47, 90);
+    opacity: .9;
+    border: 1px solid black;
+    margin: 1% 0px;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+    box-sizing: border-box;
+    max-width: 200px;
+    max-height: 400;
+    /*border-radius: 3%;*/
+    margin: 1%;
+    flex-grow: 1;
+    box-shadow: 5px 5px 10px rgb(48, 47, 47);
+}
+#sil{
+    height: 1.2rem !important;
+    min-height: 1rem !important;
+    font-size: 1rem;
+}
+#searchbar{
+    margin-right: 2vw;
+}
+
+@media screen and (max-width: 420px) {
+
+    #sil{
+        width: 30vw !important;
+        box-sizing: border-box;
+    }
+}

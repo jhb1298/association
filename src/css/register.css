@@ -1,0 +1,85 @@
+html {
+    font-size: 15px;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin: 1%;
+}
+
+h3 {
+    font-size: 1rem;
+    margin: 1%;
+}
+
+body {
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+}
+
+#rframe {
+    background-color: rgba(232, 236, 236, 0.534);
+    width: 40%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 2% 4%;
+}
+
+#rimg {
+    width: 30%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    align-self: center;
+}
+
+#rframe .inp {
+    width: 100%;
+    min-height: 1.8rem;
+    border-radius: 1%;
+    background-color: rgba(240, 248, 255, 0.527);
+}
+.inp select{
+    margin: 0 !important;
+    max-width: none !important;
+    border: none !important;
+}
+
+button {
+    font-size: 1.2rem;
+    border-radius: 10%;
+    align-self: center;
+    min-width: 25%;
+    aspect-ratio: 3/1;
+    background-color: rgba(0, 211, 35, 0.301);
+}
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    #frame{
+        width: 40%;
+    }
+}
+@media screen and (max-width: 425px) {
+    h1 {
+        font-size: 2rem;
+    }
+    #frame{
+        width: 70%;
+    }
+}

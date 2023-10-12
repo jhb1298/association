@@ -1,0 +1,53 @@
+#acss{
+    padding: 0 20px;
+}
+#aNavLinks{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#aNavLinks>a{
+    color: antiquewhite;
+    font-size: 1.2rem;
+}
+#acss>div{
+    background-color: rgba(109, 77, 36, 0.582);
+    padding: 20px;
+    margin: 20px 0;
+    
+}
+#acss input,select{
+    margin: 10px;
+    width: 300px;
+    max-width: 500px;
+    min-height: 20px;
+    background-color: rgba(250, 235, 215, 0.103);
+    border: 1px black solid;
+}
+#acss input[type="submit"]{
+    width: 100px;
+    height: 30px;
+    /*margin: 20px 0;*/
+}
+
+input[type="submit"]:active {
+    transform: scale(1.02,1.01);
+    background-color: rgba(66, 63, 59, 0.5);
+  }
+
+#acss button.clicked{
+    background-color: rgb(24, 23, 21);
+}
+
+
+#auth {
+    backdrop-filter: blur(1px); /* Adjust the blur radius as needed */
+    background-color: rgba(194, 194, 194, 0.363); /* Adjust the background color and opacity as needed */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1; /* Ensure the blurred background is below the content */
+
+  }

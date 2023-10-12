@@ -1,0 +1,72 @@
+html {
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin: 1%;
+}
+
+h3 {
+    font-size: 1rem;
+    margin: 1%;
+}
+
+body {
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+}
+#adminFrame{
+    width: 60%;
+    margin: 0 auto;
+}
+#adminNav{
+    background-color: rgb(54, 54, 124);
+    padding: 20px;
+    color: antiquewhite;
+}
+#aLogoandName{
+    display: flex;
+    align-items: center;
+}
+.logo{
+margin: 10px;
+}
+#navLinks{
+    display: flex;
+    justify-content: space-around;
+}
+#navLinks NavLinks{
+    color: rgb(58, 13, 13);
+    font-size: 1.2rem;
+}
+#adminBody{
+    background-color: rgba(250, 235, 215, 0.356);
+    padding: 10px;
+    
+}
+
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    #frame{
+        width: 40%;
+    }
+}
+@media screen and (max-width: 425px) {
+    h1 {
+        font-size: 2rem;
+    }
+    #frame{
+        width: 70%;
+    }
+}
