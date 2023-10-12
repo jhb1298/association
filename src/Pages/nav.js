@@ -50,13 +50,13 @@ class Nav extends React.Component {
             <div>
                 <div className="sm sss" id="sideMenu">
                     <a href="/" className="mt">Home</a>
-                    <a href="library" className="mt">Library</a>
-                    <a href="events" className="mt">Events</a>
-                    <a href="members" className="mt">Members</a>
-                    <a href="fund" className="mt">Fund</a>
-                    <a href="register" className="mt">Register</a>
-                    <a href="logIn" className="mt">Log-in</a>
-                    <a href="profile" className="mt">Profile</a>
+                    <a href="/library" className="mt">Library</a>
+                    <a href="/events" className="mt">Events</a>
+                    <a href="/members" className="mt">Members</a>
+                    <a href="/fund" className="mt">Fund</a>
+                    <a href="/register" className="mt">Register</a>
+                    <a href="/logIn" className="mt">Log-in</a>
+                    <a href="/profile" className="mt">Profile</a>
                 </div>
 
                 <div id="topBar">
