@@ -26,7 +26,7 @@ class aFund extends React.Component {
         };
         try {
             // Make an API request to create a new transaction
-            await axios.post("https://za-rvqp.onrender.com/api/add-transactionss", newTransaction);
+            await axios.post("https://za-rvqp.onrender.com/api/add_transactionss", newTransaction);
             // Clear form fields after successful creation
             this.setState({
                 id: "",
