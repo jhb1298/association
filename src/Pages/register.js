@@ -91,7 +91,7 @@ class Register extends React.Component {
             linkedin: this.state.linkedin,
             about: this.state.about,
             password: this.state.password,
-            image: this.state.image, // Image URL from Cloudinary
+            image: this.state.image, // Image URL from Cloudinar
         };
 
         console.log(formData)
