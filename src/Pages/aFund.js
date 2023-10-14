@@ -28,7 +28,7 @@ class aFund extends React.Component {
         };
         try {
             // Make an API request to create a new transaction
-            await axios.post("https://za-rvqp.onrender.com/api/add-transaction", newTransaction);
+            await axios.post("https://za-rvqp.onrender.com/api/add-transactions", newTransaction);
             // Clear form fields after successful creation
             this.setState({
                 id: "",
@@ -49,7 +49,7 @@ class aFund extends React.Component {
     loadTransactions = async () => {
         try {
             // Make an API request to fetch all transactions
-            const response = await axios.get("https://za-rvqp.onrender.com/api/get-all-transactions");
+            const response = await axios.get("https://za-rvqp.onrender.com/api/get-all-transactionss");
 
             const data = response.data
             // Format the date to "YYYY-MM-DD" for each event
