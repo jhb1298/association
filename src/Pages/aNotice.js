@@ -19,7 +19,7 @@ class aNotice extends React.Component {
 
         try {
             // Make a POST request to your server's /api/postnotice endpoint
-            const response = await axios.post("https://za-rvqp.onrender.com/api/postnotice", requestBody);
+            const response = await axios.post("https://za-rvqp.onrender.com/api/postnotices", requestBody);
 
             if (response.status === 201) {
                 alert("Notice posted successfully");
