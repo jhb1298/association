@@ -6,7 +6,6 @@ class aFund extends React.Component {
         super(props);
         this.state = {
             id: "",
-            referance: "",
             amount: "",
             type: "Income",
             date: "",
@@ -20,7 +19,6 @@ class aFund extends React.Component {
         event.preventDefault();
         const newTransaction = {
             id: parseInt(this.state.id),
-            referance: this.state.referance,
             amount: parseFloat(this.state.amount),
             type: this.state.type,
             date: this.state.date,
@@ -28,11 +26,10 @@ class aFund extends React.Component {
         };
         try {
             // Make an API request to create a new transaction
-            await axios.post("https://za-rvqp.onrender.com/api/add-transactions", newTransaction);
+            await axios.post("https://za-rvqp.onrender.com/api/add-transactionss", newTransaction);
             // Clear form fields after successful creation
             this.setState({
                 id: "",
-                referance: "",
                 amount: "",
                 type: "Income",
                 date: "",
@@ -41,7 +38,7 @@ class aFund extends React.Component {
             alert("Transaction added successfully!");
             this.loadTransactions();
         } catch (error) {
-            alert("Failed to add transaction. Please try again.");
+            alert("Failed to add transaction. Please try again."+error);
         }
     };
 
@@ -97,15 +94,7 @@ class aFund extends React.Component {
                                 onChange={(e) => this.setState({ id: e.target.value })}
                             />
                         </div>
-                        <div>
-                            <label>Reference:</label>
-                            <input
-                                type="text"
-                                name="reference"
-                                value={this.state.reference}
-                                onChange={(e) => this.setState({ reference: e.target.value })}
-                            />
-                        </div>
+                
                         <div>
                             <label>Amount:</label>
                             <input
