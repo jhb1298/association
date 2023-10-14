@@ -44,7 +44,7 @@ class Home extends React.Component {
     // Create a function to fetch notice data
     async fetchNoticeData() {
         try {
-            const response = await axios.get("https://za-rvqp.onrender.com/api/get-notice"); // Replace with your actual API endpoint
+            const response = await axios.get("https://za-rvqp.onrender.com/api/get-notices"); // Replace with your actual API endpoint
             return response.data;
         } catch (error) {
             console.error("Error fetching notice:", error);
