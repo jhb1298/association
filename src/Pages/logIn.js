@@ -94,7 +94,7 @@ class LogIn extends React.Component {
             <input style={{ display: 'inline' }} type="checkbox" name="option1" value="Option 1" />
             <h3 style={{ display: 'inline' }}>Accept <a href="t&c">terms & conditions.</a></h3>
           </div>
-          <button type="submit">Log-in</button>
+          <button className="logInBtn" type="submit">Log-in</button>
         </form>
       </div>
     );

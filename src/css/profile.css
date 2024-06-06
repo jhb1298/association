@@ -36,6 +36,15 @@
     padding: 50px;
 }
 
+textarea{
+    min-height: 100px;
+    width: 100%;
+    padding: 5px;
+    background-color: rgba(250, 235, 215, 0.178);
+}
+
+
+
 
 
 @media screen and (max-width: 768px) {

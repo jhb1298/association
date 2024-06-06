@@ -11,7 +11,8 @@ class Events extends Component {
         super(props);
         this.state = {
             events: [],
-            searchText: "" // Store fetched events here
+            searchText: "", // Store fetched events here,
+            sortBy: "desc"
         };
     }
 
@@ -22,7 +23,7 @@ class Events extends Component {
 
         // Fetch events data from your API here
         this.fetchBooks();
-        
+
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -35,34 +36,34 @@ class Events extends Component {
 
     fetchBooks = async () => {
         try {
-          const response = await fetch("https://za-rvqp.onrender.com/api/get-all-events"); // Replace with your API URL
-          const data = await response.json();
-    
-          // Format the date to "YYYY-MM-DD" for each event
-          const formattedEvents = data.map((event) => ({
-              ...event,
-              date: new Date(event.date).toISOString().split('T')[0], // Format the date
-          }));
-    
-          // Filter events based on the searchText (case-insensitive)
-          const filteredEvents = formattedEvents.filter(event =>
-            event.name.toLowerCase().includes(this.state.searchText.toLowerCase())
-          );
-    
-          // Determine the sorting criteria based on this.state.sortBy
-          if (this.state.sortBy === "asc") {
-            filteredEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
-          } else if (this.state.sortBy === "desc") {
-            filteredEvents.sort((a, b) => new Date(b.date) - new Date(a.date));
-          }
-    
-          // Update the state with the fetched, filtered, and sorted event data
-          this.setState({ events: filteredEvents });
+            const response = await fetch("https://za-rvqp.onrender.com/api/get-all-events"); // Replace with your API URL
+            const data = await response.json();
+
+            // Format the date to "YYYY-MM-DD" for each event
+            const formattedEvents = data.map((event) => ({
+                ...event,
+                date: new Date(event.date).toISOString().split('T')[0], // Format the date
+            }));
+
+            // Filter events based on the searchText (case-insensitive)
+            const filteredEvents = formattedEvents.filter(event =>
+                event.name.toLowerCase().includes(this.state.searchText.toLowerCase())
+            );
+
+            // Determine the sorting criteria based on this.state.sortBy
+            if (this.state.sortBy === "asc") {
+                filteredEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
+            } else if (this.state.sortBy === "desc") {
+                filteredEvents.sort((a, b) => new Date(b.date) - new Date(a.date));
+            }
+
+            // Update the state with the fetched, filtered, and sorted event data
+            this.setState({ events: filteredEvents });
         } catch (error) {
-          console.error('Error fetching events:', error);
+            console.error('Error fetching events:', error);
         }
-      };
-    
+    };
+
 
     render() {
         return (
@@ -70,9 +71,10 @@ class Events extends Component {
                 <div id="sortAndSearche">
                     <div className="dropDown">
                         <label style={{ fontSize: '1rem' }} htmlFor="sort">Sort by:</label>
-                        <select style={{ fontSize: '1rem' }} id="sort" onChange={(e)=>this.setState({ sortBy: e.target.value })}>
-                            <option value="asc">Ascending order</option>
+                        <select style={{ fontSize: '1rem' }} id="sort" onChange={(e) => this.setState({ sortBy: e.target.value })}
+                        >
                             <option value="desc">Descending Order</option>
+                            <option value="asc">Ascending order</option>
                         </select>
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'row', justifyContent: "flex-end", flexGrow: ".3", margin: "5px 0", alignItems: 'center', boxSizing: "border-box" }} id="search">

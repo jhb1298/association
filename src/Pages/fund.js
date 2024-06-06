@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import AOS from "aos";
-import axios from "axios";
+//import axios from "axios";
 import "aos/dist/aos.css";
 import "../css/fund.css";
 
@@ -14,7 +14,7 @@ class Fund extends Component {
 
   componentDidMount() {
     AOS.init();
-    axios
+    /*axios
       .get("https://za-rvqp.onrender.com/api/get-all-transactions")
       .then((response) => {
         // Update the state using setState
@@ -23,10 +23,10 @@ class Fund extends Component {
       })
       .catch((error) => {
         console.error("Error fetching total fund amount:", error);
-      });
+      });*/
   }
 
-  render() {
+  /*render() {
     return (
       <div>
         <div style={{ marginTop: "16vh", width: "100%" }}>
@@ -118,6 +118,31 @@ class Fund extends Component {
 
           <h2 style={{ textAlign: "center" }}>For more information, please contact Shudipta Chocroborti, Civil'16.</h2>
         </div>
+      </div>
+    );
+  }
+}*/
+
+  render() {
+    return (
+      <div style={{
+        marginTop: "16vh",
+        width: "100%",
+        height: "84vh",
+        display: "flex",
+        flexDirection:"column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}>
+        <p style={{fontSize:"3rem", color:"antiquewhite"}}>You can send dontion for your beloved association through-</p>
+        <div style={{display:"flex"}}>
+          <p style={{borderLeft:"solid 2px black", paddingLeft:"5px", paddingRight:"5px", borderRight:"solid 2px black", fontSize:"2rem", color:"rgb(203,15,98)"}}>BKash: 01767366049</p>
+          <p style={{borderLeft:"solid 2px black", paddingLeft:"5px", paddingRight:"5px", borderRight:"solid 2px black",fontSize:"2rem", color:"rgb(241,101,34)"}}>Nagad: 01767366049</p>
+          <p style={{borderLeft:"solid 2px black", paddingLeft:"5px", paddingRight:"5px", borderRight:"solid 2px black",fontSize:"2rem", color:"rgb(134,39,139)"}}>Rocket: 01767366049</p>
+
+         
+        </div>
+        <h3 style={{color:"antiquewhite"}}>With reference: BZA</h3>
       </div>
     );
   }

@@ -60,14 +60,14 @@ body {
     border: none !important;
 }
 
-button {
+/*button {
     font-size: 1.2rem;
     border-radius: 10%;
     align-self: center;
     min-width: 25%;
     aspect-ratio: 3/1;
     background-color: rgba(0, 211, 35, 0.301);
-}
+}*/
 @media screen and (max-width: 768px) {
     h1 {
         font-size: 2rem;

@@ -41,7 +41,7 @@ class Library extends React.Component {
       let books = response.data;
 
       // Filter books based on the searchText (case-insensitive)
-      books = books.filter(book => 
+      books = books.filter(book =>
         book.name.toLowerCase().includes(this.state.searchText.toLowerCase())
       );
 
@@ -113,9 +113,9 @@ class Library extends React.Component {
                 <h3 style={{ textAlign: 'left' }}>Name: {book.name}</h3>
                 <h4>Writer: {book.author}</h4>
                 <h4>Available: {book.available}</h4>
-                <button  
-                onClick={() => localStorage.getItem("id") ? this.addBook(book.id, localStorage.getItem("id")) :null}>
-                Order
+                <button
+                  onClick={() => localStorage.getItem("id") ? this.addBook(book.id, localStorage.getItem("id")) : null}>
+                  Order
                 </button>
               </div>
             </li>

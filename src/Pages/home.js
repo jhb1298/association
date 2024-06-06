@@ -57,7 +57,7 @@ class Home extends React.Component {
             // Options go here
         });
         const noticeData = await this.fetchNoticeData();
-        this.setState({ notice: noticeData });
+        this.setState({ notice: noticeData.reverse() });
     }
 
     render() {

@@ -75,23 +75,25 @@ h4 {
     z-index: 1;
 }
 
-#oListL li {
-    background-color: rgb(59, 47, 90);
+#oListL > li {
+    display: inline-block; 
+    background-color: rgb(144, 150, 245);
     opacity: .9;
     border: 1px solid black;
     margin: 1% 0px;
     padding: 1%;
     display: flex;
     flex-direction: column;
-    /*align-items: center;*/
     box-sizing: border-box;
     max-width: 200px;
     max-height: 400;
-    /*border-radius: 3%;*/
     margin: 1%;
     flex-grow: 1;
-    box-shadow: 5px 5px 10px rgb(48, 47, 47);
+    box-shadow: 5px 5px 5px rgb(31, 30, 30);
 }
+
+
+
 #sil{
     height: 1.2rem !important;
     min-height: 1rem !important;

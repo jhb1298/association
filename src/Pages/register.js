@@ -1,8 +1,8 @@
 import React from "react";
 import AOS from 'aos';
 import axios from 'axios';
-import { Cloudinary } from "@cloudinary/url-gen";
-import { AdvancedImage } from "@cloudinary/react";
+//import { Cloudinary } from "@cloudinary/url-gen";
+//import { AdvancedImage } from "@cloudinary/react";
 import 'aos/dist/aos.css';
 import '../css/register.css';
 import ruetLogo from "../images/Ruet_logo.jpg";
@@ -20,6 +20,7 @@ class Register extends React.Component {
             facebook: '',
             linkedin: '',
             about: '',
+            adress:'',
             password: '',
             image: "",
         };
@@ -90,6 +91,7 @@ class Register extends React.Component {
             facebook: this.state.facebook,
             linkedin: this.state.linkedin,
             about: this.state.about,
+            adess:this.state.adress,
             password: this.state.password,
             image: this.state.image, // Image URL from Cloudinar
         };
@@ -198,6 +200,14 @@ class Register extends React.Component {
                         value={this.state.about}
                         onChange={(e) => this.setState({ about: e.target.value })}
                     />
+                    <h2>Address</h2>
+                    <textarea
+                        className="inp"
+                        placeholder="12/2 Santahar, Bogura"
+                        name="adress"
+                        value={this.state.adress}
+                        onChange={(e) => this.setState({ adress: e.target.value })}
+                    />
                     <h2>Set Password</h2>
                     <input
                         className="inp"
@@ -213,7 +223,7 @@ class Register extends React.Component {
                         <input style={{ display: 'inline' }} type="checkbox" name="option1" value="Option 1" />
                         <h3 style={{ display: 'inline' }}>Accept <a href="t&c">terms & conditions.</a></h3>
                     </div>
-                    <input type="submit" value={"Insert"}></input>
+                    <input type="submit" value={"Submit"}></input>
                 </form>
             </div>
         );
