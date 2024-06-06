@@ -49,6 +49,14 @@ function Profile() {
             });
     };
 
+    const returnRank=(r)=>{
+        switch(r){
+            case(1):return "Precident"
+            case(2):return "Secratery"
+            default:return "Member"
+        }
+    }
+
     if (!memberInfo) {
         return <p>Loading...</p>;
     }
@@ -56,12 +64,16 @@ function Profile() {
     return (
         <div id="profileBackground">
             <div id="top-Left">
-                <button onClick={() => { setEdit(true) }}>
+                { localStorage.getItem("id") && (memberInfo.id===localStorage.getItem("id")) &&
+                    <button onClick={() => { setEdit(true) }}>
                     <FontAwesomeIcon icon={faEdit} /> Edit
                 </button>
+                }
+                
 
                 <img src={image} alt="" style={{ borderRadius: "50%", aspectRatio: "1/1", width: "200px" }}></img>
                 <h1>{memberInfo.name}</h1>
+                <h2>{returnRank(memberInfo.returnRank)}</h2>
                 <h2><i>{memberInfo.id}</i></h2>
                 <h2><i>Department of Computer Science and Engineering</i></h2>
                 <h2><i>Rajshahi University of Engineeering and Technology</i></h2>
@@ -95,9 +107,10 @@ function Profile() {
             <div id="bottom-right" style={{ display: "flex", flexDirection: "column" }}>
                 <h2 style={{ borderBottom: "3px solid black", fontSize: "2rem", marginTop: "50px" }}>About:</h2>
                 {edit ? <textarea defaultValue={memberInfo.about} onChange={(e) => { setMemberInfo({...memberInfo,about:e.target.value})}}  /> : memberInfo.about}
+                { localStorage.getItem("id") &&(memberInfo.id===localStorage.getItem("id")) &&
                 <button style={{ alignSelf: "end", width: "max-content", padding: "10px", marginTop: "20px" }}
                     onClick={() => { handleUpdateMember() }}
-                >Save</button>
+                >Save</button>}
             </div>
         </div>
     );

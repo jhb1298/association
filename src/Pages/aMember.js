@@ -1,11 +1,8 @@
 import React from "react";
 import axios from "axios";
-import AOS from 'aos';
 
 import 'aos/dist/aos.css';
 import '../css/a.css';
-import ruetLogo from "../images/Ruet_logo.jpg";
-import libraryLogo from "../images/library.png";
 
 
 
@@ -14,11 +11,13 @@ class AMember extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: "",
+            id: 0,
+            rank: 1000,
             name: "",
             dept: "",
             image: "",
             about: "",
+            adress: "",
             designation: "",
             email: "",
             phone: "",
@@ -37,14 +36,14 @@ class AMember extends React.Component {
         try {
             const response = await axios.get("https://za-rvqp.onrender.com/api/get-all-members");
             const members = response.data; // Assuming the response contains an array of members
-            this.state.members=members
-            this.setState({ members });
+            //this.state.members = members
+            this.setState({ members: members });
         } catch (error) {
             console.error("Error fetching members:", error);
         }
     };
 
-    // Function to handle form submission for creating a member
+    /*// Function to handle form submission for creating a member
     handleCreateMember = async (event) => {
         event.preventDefault();
         const newMember = {
@@ -53,6 +52,7 @@ class AMember extends React.Component {
             dept: this.state.dept,
             image: this.state.image,
             about: this.state.about,
+            adress:this.state.adress,
             designation: this.state.designation,
             email: this.state.email,
             phone: this.state.phone,
@@ -70,6 +70,7 @@ class AMember extends React.Component {
                 dept: "",
                 image: "",
                 about: "",
+                adress:"",
                 designation: "",
                 email: "",
                 phone: "",
@@ -82,7 +83,7 @@ class AMember extends React.Component {
         } catch (error) {
             alert("Failed to create member. Please try again.");
         }
-    };
+    };*/
 
 
     // Function to handle form submission for deleting a member
@@ -94,26 +95,57 @@ class AMember extends React.Component {
             // Make an API request to delete the member by ID
             await axios.delete(`https://za-rvqp.onrender.com/api/delete-member/${memberIdToDelete}`);
             // Clear the ID field after successful deletion
-            this.setState({ id: "" });
+            this.setState({ id: 0 });
             alert("Member deleted successfully!");
             // Refetch members to update the list after deletion
             this.fetchMembers();
         } catch (error) {
-            alert("ID= "+this.state.id+" does not exist.");
+            alert("ID= " + this.state.id + " does not exist.");
         }
+    };
+
+
+
+    handleAsignRank = () => {
+       let member={...this.state.members.find((m)=>(m.id==this.state.id)),rank:120}
+
+      const id=this.state.id
+
+        axios.put(`https://za-rvqp.onrender.com/api/updateMember/${id}`, member)
+            .then((response) => {
+                console.log("Member information updated successfully");
+                localStorage.setItem("Members",JSON.stringify(response))
+            })
+            .catch((error) => {
+                console.error("Error updating member information:", error);
+            });
+    };
+
+
+    handleClearRank = async () => {
+
+        // Send the updated member information in the body of the PUT request
+        axios.put(`https://za-rvqp.onrender.com/api/clearRank`)
+            .then((response) => {
+                console.log("Member information updated successfully");
+            })
+            .catch((error) => {
+                console.error("Error updating member information:", error);
+            });
     };
 
 
     render() {
         return (
             <div id="acss">
-               
                 <div>
                     <h2>Number of members: {this.state.members.length}</h2>
                 </div>
                 <div>
                     <h2>Delete a member:</h2>
-                    <form onSubmit={this.handleDeleteMember}>
+                    <form onSubmit={(e)=>{
+                        e.preventDefault()
+                        this.handleDeleteMember()}}>
                         <div>
                             <label>Member ID:</label>
                             <input
@@ -127,6 +159,39 @@ class AMember extends React.Component {
                             <input type="submit" value="Delete" />
                         </div>
                     </form>
+                </div>
+                <div>
+                    <h2>Asign Rank:</h2>
+                    <form onSubmit={(e)=>{
+                        e.preventDefault()
+                        this.handleAsignRank()}}>
+                        <div>
+                            <label>Member ID:</label>
+                            <input
+                                type="number"
+                                name="id"
+                                onChange={(e) => this.setState({ id: parseInt(e.target.value) })}  // Add this line
+                            />
+                        </div>
+                        <div>
+                            <label>Rank:</label>
+                            <select
+                                name="rank"
+                                onChange={(e) => this.setState({ rank: e.target.value })}  // Add this line
+                            >
+                                <option value={1000}>Choose Rank</option>
+                                <option value={1}>Precident</option>
+                                <option value={2}>Secratery</option>
+                                <option value={3}>Librarian</option>
+                            </select>
+                        </div>
+                        <div>
+                            <input type="submit" value="Update" />
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    <button style={{ backgroundColor: "red", height: "30px" }} onClick={() => { this.handleClearRank() }}>Clear Rank</button>
                 </div>
                 <div>
                     <h2>Members:</h2>

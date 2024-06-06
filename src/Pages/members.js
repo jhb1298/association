@@ -8,7 +8,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 function Members() {
   const [members, setMembers] = useState([]);
   const [searchText, setSearchText] = useState("");
-  const [sortBy, setSortBy] = useState("id");
+  const [sortBy, setSortBy] = useState("rank");
 
   useEffect(() => {
     AOS.init({
@@ -32,6 +32,9 @@ function Members() {
         filteredMembers.sort((a, b) => a.id - b.id);
       } else if (sortBy === "name") {
         filteredMembers.sort((a, b) => a.name.localeCompare(b.name));
+      }
+      else{
+        filteredMembers.sort((a, b) => a.rank - b.rank);
       }
 
       // Update the state with the fetched, filtered, and sorted member data

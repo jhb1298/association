@@ -13,6 +13,7 @@ class Register extends React.Component {
         this.state = {
             drawerOpened: false,
             id: '',
+            rank:1000,
             name: '',
             dept: '',
             email: '',
@@ -84,6 +85,7 @@ class Register extends React.Component {
 
         const formData = {
             id: parseInt(this.state.id),
+            rank:1000,
             name: this.state.name,
             dept: this.state.dept,
             email: this.state.email,
