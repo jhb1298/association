@@ -107,7 +107,7 @@ class AMember extends React.Component {
 
 
     handleAsignRank = () => {
-       let member={...this.state.members.find((m)=>(m.id==this.state.id)),rank:120}
+       let member={...this.state.members.find((m)=>(m.id==this.state.id)),rank:this.state.rank}
 
       const id=this.state.id
 

@@ -73,7 +73,7 @@ function Profile() {
 
                 <img src={image} alt="" style={{ borderRadius: "50%", aspectRatio: "1/1", width: "200px" }}></img>
                 <h1>{memberInfo.name}</h1>
-                <h2>{returnRank(memberInfo.returnRank)}</h2>
+                <h2>{returnRank(memberInfo.rank)}</h2>
                 <h2><i>{memberInfo.id}</i></h2>
                 <h2><i>Department of Computer Science and Engineering</i></h2>
                 <h2><i>Rajshahi University of Engineeering and Technology</i></h2>
