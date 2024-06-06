@@ -32,7 +32,7 @@ class Register extends React.Component {
     const { user, pass } = this.state;
     try {
       // Make an API request to authenticate the admin
-      const response = await axios.post("https://za-rvqp.onrender.com/api/login-admin", {
+      const response = await axios.post("https://za-rvqp.onrender.com/api/admin-login", {
         name: user,
         password: pass,
       });

@@ -15,7 +15,7 @@ class Fund extends Component {
   componentDidMount() {
     AOS.init();
     axios
-      .get("https://za-rvqp.onrender.com/api/get-all-transactionss")
+      .get("https://za-rvqp.onrender.com/api/get-all-transactions")
       .then((response) => {
         // Update the state using setState
         this.setState({ fundDatas: response.data }); // Assuming that the response contains an array of data
