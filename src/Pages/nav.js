@@ -1,5 +1,6 @@
 import React from "react";
 import AOS from 'aos';
+import axios from "axios";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -9,15 +10,32 @@ import '../css/nav.css';
 import ruetLogo from "../images/Ruet_logo.jpg";
 
 
+
 class Nav extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
             drawerOpened: false,
+            pQuote: "",
+            sQuote:"",
+            p:{},
+            s:{}
         };
         this.sidebutton = this.sidebutton.bind(this);
     }
+
+    fetchInfo = async () => {
+        try {
+            const response = await axios.get("https://za-rvqp.onrender.com/api/fetchInfo");
+
+            const {name,year,logo}=response.data
+           
+            this.setState({ name:name, year:year, logo:logo });
+        } catch (error) {
+            console.error("Error fetching members:", error);
+        }
+    };
 
     sidebutton() {
         const { drawerOpened } = this.state;
@@ -64,8 +82,8 @@ class Nav extends React.Component {
                     <div id="logoAndName">
                         <img className="logo" src={ruetLogo} alt="BGA Logo" />
                         <div id="nameBox">
-                            <h1>Bogura Zilla Association</h1>
-                            <h4>since 1998</h4>
+                            <h1>{this.state.name}</h1>
+                            <h4>since {this.state.year}</h4>
                         </div>
                     </div>
                     {/*<i id="barButton" className="fas fa-bars"></i>*/}

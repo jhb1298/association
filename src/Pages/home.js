@@ -10,15 +10,41 @@ import libraryLogo from "../images/library.png";
 
 
 class Home extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
             drawerOpened: false,
             notice: [],
+            pQuote: "",
+            sQuote:"",
+            members:[]
         };
         this.sidebutton = this.sidebutton.bind(this);
     }
+
+    fetchInfo = async () => {
+        try {
+            const response = await axios.get("https://za-rvqp.onrender.com/api/fetchInfo");
+
+            const {pQuote,sQuote}=response.data
+           
+            this.setState({ pQuote:pQuote, sQuote:sQuote });
+        } catch (error) {
+            console.error("Error fetching info:", error);
+        }
+    };
+
+    // Function to fetch members from the API
+    fetchMembers = async () => {
+        try {
+            const response = await axios.get("https://za-rvqp.onrender.com/api/get-all-members");
+            const members = response.data; 
+            this.setState({ members: members });
+        } catch (error) {
+            console.error("Error fetching members:", error);
+        }
+    };
+
 
     sidebutton() {
         const { drawerOpened } = this.state;
@@ -63,42 +89,34 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-
-
-
                 <div id="outer1">
                     <div id="left">
                         <div id="top">
+                            
                             <div className="oc" id="pBox">
                                 <div style={{ height: '25%' }}>
                                     <img style={{ display: 'inline', width: '15%', borderRadius: '50%', aspectRatio: '1/1' }}
                                         src={ruetLogo} alt="PImage" />
                                     <div style={{ display: 'inlineBlock', height: '100%', width: '50%' }}>
-                                        <p style={{ margin: '0% 0% 5% 5%', color: 'aliceblue', fontSize: '1.1rem' }}>Precidents Name</p>
+                                        <p style={{ margin: '0% 0% 5% 5%', color: 'aliceblue', fontSize: '1.1rem' }}>{this.state.members.find((m)=>(m.rank==1))}</p>
                                         <p style={{ margin: '0% 0% 5% 5%', color: 'aliceblue', fontSize: '.7rem' }}>Precident</p>
                                     </div>
                                 </div>
-                                <p style={{ color: 'aliceblue', fontSize: '1rem', height: '75%' }}>"Lorem ipsum dolor sit amet consectetur
-                                    adipisicing
-                                    elit. Ipsam velit corrupti quo a, ratione doloribus porro voluptatum in qui nihil, consequuntur
-                                    maiores error dolores unde nobis dicta tempora, fugiat ea."</p>
-
+                                <p style={{ color: 'aliceblue', fontSize: '1rem', height: '75%' }}>{this.state.pQuote}</p>
                             </div>
+
                             <div className="oc" id="sBox">
                                 <div style={{ height: '25%' }}>
                                     <img style={{ display: 'inline', width: '15%', borderRadius: '50%', aspectRatio: '1/1' }}
                                         src={ruetLogo} alt="PImage" />
                                     <div style={{ display: 'inline-block', height: '100%', width: '50%' }}>
-                                        <p style={{ margin: '0% 0% 5% 5%', color: 'aliceblue', fontSize: '1.1rem' }}>Secratery Name</p>
+                                        <p style={{ margin: '0% 0% 5% 5%', color: 'aliceblue', fontSize: '1.1rem' }}>{this.state.members.find((m)=>(m.rank==1))}</p>
                                         <p style={{ margin: '0% 0% 5% 5%', color: 'aliceblue', fontSize: '.7rem' }}>Secretary</p>
                                     </div>
                                 </div>
-                                <p style={{ color: 'aliceblue', fontSize: '1rem', overflow: 'hidden', textOverflow: 'ellipsis' }}>"Lorem
-                                    ipsum dolor sit amet consectetur adipisicing
-                                    elit. Ipsam velit corrupti quo a, ratione doloribus porro voluptatum in qui nihil, consequuntur
-                                    maiores error dolores unde nobis dicta tempora, fugiat ea."</p>
-
+                                <p style={{ color: 'aliceblue', fontSize: '1rem', overflow: 'hidden', textOverflow: 'ellipsis' }}>{this.state.sQuote}</p>
                             </div>
+
                         </div>
                         <div className="oc" id="bottom">
                             <p

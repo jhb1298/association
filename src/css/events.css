@@ -12,14 +12,14 @@ body,html {
 }
 #sortAndSearche{
     top: 15vh;
-    height: 3vh;
-    padding: 5px;
     width: 100vw;
     position: fixed;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    background-color: rgba(250, 235, 215, 0.329);
     z-index: 100;
 }
 #ole{

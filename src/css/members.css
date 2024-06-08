@@ -32,14 +32,16 @@ h4 {
 }
 
 #sortAndSearchm {
-    top: 15%;
-    height: 5%;
+    top: 15vh;
     width: 100vw;
     position: fixed;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    background-color: rgba(250, 235, 215, 0.329);
+    z-index: 100;
 }
 #sortAndSearchm select{
     background-color: transparent;

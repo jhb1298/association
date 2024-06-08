@@ -16,7 +16,15 @@
     margin: 20px 0;
     
 }
-#acss input,select{
+#acss input{
+    margin: 10px;
+    width: 300px;
+    max-width: 500px;
+    min-height: 20px;
+    background-color: rgba(250, 235, 215, 0.103);
+    border: 1px black solid;
+}
+#acss select{
     margin: 10px;
     width: 300px;
     max-width: 500px;

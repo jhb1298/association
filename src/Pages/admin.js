@@ -29,6 +29,7 @@ class Register extends React.Component {
 
   // Function to make an API request to authenticate the admin
   authenticateAdmin = async () => {
+    
     const { user, pass } = this.state;
     try {
       // Make an API request to authenticate the admin

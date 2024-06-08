@@ -22,7 +22,7 @@ class Events extends Component {
         });
 
         // Fetch events data from your API here
-        this.fetchBooks();
+        this.fetchEvents();
 
     }
 
@@ -30,11 +30,11 @@ class Events extends Component {
         // Check if the sortBy value or searchText has changed
         if (this.state.sortBy !== prevState.sortBy || this.state.searchText !== prevState.searchText) {
             // Fetch and update the books based on the new sortBy value and searchText
-            this.fetchBooks();
+            this.fetchEvents();
         }
     }
 
-    fetchBooks = async () => {
+    fetchEvents = async () => {
         try {
             const response = await fetch("https://za-rvqp.onrender.com/api/get-all-events"); // Replace with your API URL
             const data = await response.json();
